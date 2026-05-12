@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+
+  <!-- LOGIN ХЭСЭГ -->
+  <div id="login-view" class="login-container hidden">
+    <form id="login-form" class="login-form">
+      <h1>Admin Login</h1>
+      <input type="email" id="login-email" placeholder="И-мэйл" required />
+      <input type="password" id="login-password" placeholder="Нууц үг" required />
+      <button type="submit">Нэвтрэх</button>
+      <p id="login-error" class="status error"></p>
+    </form>
+  </div>
+
+  <!-- DASHBOARD ХЭСЭГ -->
+  <div id="admin-view" class="admin-container hidden">
+    <header class="admin-header">
+      <h1>Admin Panel</h1>
+      <div>
+        <a href="index.html" class="btn-link">← Сайт руу</a>
+        <button id="logout-btn" class="btn-secondary">Гарах</button>
+      </div>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="projects">Төслүүд</button>
+      <button class="tab-btn" data-tab="skills">Ур чадвар</button>
+      <button class="tab-btn" data-tab="contacts">Мессежүүд</button>
+    </nav>
+
+    <!-- PROJECTS TAB -->
+    <section id="tab-projects" class="tab-content active">
+      <h2>Шинэ төсөл нэмэх</h2>
+      <form id="project-form" class="admin-form">
+        <input type="hidden" id="project-id" />
+        <input type="text" id="project-title" placeholder="Гарчиг" required />
+        <textarea id="project-description" placeholder="Тайлбар" rows="3"></textarea>
+        <input type="url" id="project-image" placeholder="Зургийн URL" />
+        <input type="url" id="project-url" placeholder="Төслийн URL" />
+        <input type="url" id="project-github" placeholder="GitHub URL" />
+        <input type="text" id="project-tech" placeholder="Технологи (таслалаар: React, Node.js)" />
+        <div class="form-buttons">
+          <button type="submit" id="project-submit">Нэмэх</button>
+          <button type="button" id="project-cancel" class="btn-secondary hidden">Цуцлах</button>
+        </div>
+      </form>
+
+      <h2>Бүх төслүүд</h2>
+      <div id="projects-table"></div>
+    </section>
+
+    <!-- SKILLS TAB -->
+    <section id="tab-skills" class="tab-content">
+      <h2>Шинэ ур чадвар нэмэх</h2>
+      <form id="skill-form" class="admin-form">
+        <input type="hidden" id="skill-id" />
+        <input type="text" id="skill-name" placeholder="Ур чадварын нэр" required />
+        <input type="text" id="skill-category" placeholder="Ангилал (Frontend, Backend, гэх мэт)" />
+        <input type="number" id="skill-level" placeholder="Түвшин (0-100)" min="0" max="100" />
+        <div class="form-buttons">
+          <button type="submit" id="skill-submit">Нэмэх</button>
+          <button type="button" id="skill-cancel" class="btn-secondary hidden">Цуцлах</button>
+        </div>
+      </form>
+
+      <h2>Бүх ур чадвар</h2>
+      <div id="skills-table"></div>
+    </section>
+
+    <!-- CONTACTS TAB -->
+    <section id="tab-contacts" class="tab-content">
+      <h2>Холбоо барих мессежүүд</h2>
+      <div id="contacts-table"></div>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
