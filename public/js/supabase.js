@@ -1,7 +1,7 @@
 // Supabase тохиргоо
 // АНХААРАХ: Эдгээр нь "anon public" key, аюулгүй (RLS-ээр хамгаалагдсан)
-const SUPABASE_URL = 'https://YOUR_PROJECT.supabase.co';
-const SUPABASE_ANON_KEY = 'YOUR_ANON_KEY';
+const SUPABASE_URL = 'wamsnqdordkcgaydrhdb.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_hgW7psub8ZS5a-Ukwo6TYg_Rnn_cPnJ9u';
 
 // CDN-ээс ачаалсан Supabase client
 const { createClient } = supabase;
